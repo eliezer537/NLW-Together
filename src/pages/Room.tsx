@@ -17,7 +17,7 @@ type RoomParams = {
 };
 
 export function Room() {
-	const { user } = useAuth();
+	const { user, SignInWithGoogle } = useAuth();
 	const params = useParams<RoomParams>();
 	const [newQuestion, setNewQuestion] = useState('');
 	const roomId = params.id;
@@ -51,15 +51,17 @@ export function Room() {
 		setNewQuestion('');
 	}
 
+	//prettier-ignore
 	async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
+		if(!user){
+			//React Modal
+			return;
+		}
+		
 		if (likeId) {
-			await database
-				.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`)
-				.remove();
+			await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
 		} else {
-			await database
-				.ref(`rooms/${roomId}/questions/${questionId}/likes`)
-				.push({ authorId: user?.id });
+			await database.ref(`rooms/${roomId}/questions/${questionId}/likes`).push({ authorId: user?.id });
 		}
 	}
 
@@ -92,7 +94,8 @@ export function Room() {
 							</div>
 						) : (
 							<span>
-								Para enviar uma pergunta, <button>faça seu login</button>
+								Para enviar uma pergunta,{' '}
+								<button onClick={SignInWithGoogle}>faça seu login</button>
 							</span>
 						)}
 						<Button type='submit' disabled={!user}>

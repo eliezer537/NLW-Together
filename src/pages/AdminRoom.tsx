@@ -3,6 +3,8 @@ import Modal from 'react-modal';
 
 import logoImg from '../assets/images/logo.svg';
 import deleteImg from '../assets/images/delete.svg';
+import checkImg from '../assets/images/check.svg';
+import answerImg from '../assets/images/answer.svg';
 
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
@@ -36,7 +38,25 @@ export function AdminRoom() {
 		history.push('/');
 	}
 
-	function handleModalDeleteConfirmation(questionId: string) {
+	async function handleCheckQuestionAsAnswered(
+		questionId: string,
+		isAnswered?: boolean
+	) {
+		await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+			isAnswered: !isAnswered,
+		});
+	}
+
+	async function handleHighlightQuestion(
+		questionId: string,
+		isHighlighted?: boolean
+	) {
+		await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+			isHighlighted: !isHighlighted,
+		});
+	}
+
+	function handleDeleteConfirmationModal(questionId: string) {
 		setIsModalVisible(true);
 		setQuestionId(questionId);
 	}
@@ -74,10 +94,43 @@ export function AdminRoom() {
 							key={question.id}
 							content={question.content}
 							author={question.author}
+							isAnswered={question.isAnswered}
+							isHighlighted={question.isHighlighted}
 						>
+							{question.isAnswered ? (
+								<>
+									<button
+										type='button'
+										onClick={() =>
+											handleCheckQuestionAsAnswered(question.id, question.isAnswered)
+										}
+									>
+										<img src={checkImg} alt='Marcar pergunta como respondida' />
+									</button>
+								</>
+							) : (
+								<>
+									<button
+										type='button'
+										onClick={() => handleCheckQuestionAsAnswered(question.id)}
+									>
+										<img src={checkImg} alt='Marcar pergunta como respondida' />
+									</button>
+
+									<button
+										type='button'
+										onClick={() =>
+											handleHighlightQuestion(question.id, question.isHighlighted)
+										}
+									>
+										<img src={answerImg} alt='Dar destaque à pergunta' />
+									</button>
+								</>
+							)}
+
 							<button
 								type='button'
-								onClick={() => handleModalDeleteConfirmation(question.id)}
+								onClick={() => handleDeleteConfirmationModal(question.id)}
 							>
 								<img src={deleteImg} alt='Remover pergunta' />
 							</button>

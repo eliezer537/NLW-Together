@@ -1,5 +1,10 @@
 .question {
 	background-color: #fefefe;
+
+	&.dark {
+		background-color: #839899;
+	}
+
 	border-radius: 8px;
 	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 	padding: 24px;
@@ -12,6 +17,10 @@
 		background-color: #f4f0ff;
 		border: 1px solid #835afd;
 
+		&.dark {
+			background-color: #91acb1;
+		}
+
 		footer .user-info span {
 			color: #29292e;
 		}
@@ -19,6 +28,10 @@
 
 	&.answered {
 		background-color: #dbdcdd;
+
+		&.dark {
+			background-color: #586479;
+		}
 	}
 
 	p {
@@ -45,6 +58,12 @@
 				margin-left: 8px;
 				color: #737380;
 				font-size: 0.875rem;
+			}
+
+			&.dark {
+				span {
+					color: #4a4a4b;
+				}
 			}
 		}
 

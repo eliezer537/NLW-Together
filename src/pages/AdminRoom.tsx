@@ -5,6 +5,8 @@ import logoImg from '../assets/images/logo.svg';
 import deleteImg from '../assets/images/delete.svg';
 import checkImg from '../assets/images/check.svg';
 import answerImg from '../assets/images/answer.svg';
+import sunImg from '../assets/images/sun.svg';
+import moonImg from '../assets/images/moon.svg';
 
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
@@ -12,6 +14,7 @@ import { RoomCode } from '../components/RoomCode';
 
 import { database } from '../services/firebase';
 import { useRoom } from '../hooks/useRoom';
+import { useTheme } from '../hooks/useTheme';
 
 import '../styles/room.scss';
 import { useState } from 'react';
@@ -23,8 +26,10 @@ type RoomParams = {
 Modal.setAppElement('#root');
 
 export function AdminRoom() {
+	const { theme, toggleTheme } = useTheme();
 	const history = useHistory();
 	const params = useParams<RoomParams>();
+
 	const roomId = params.id;
 	const { questions, title } = useRoom(roomId);
 	const [isModalVisible, setIsModalVisible] = useState(false);
@@ -69,10 +74,17 @@ export function AdminRoom() {
 	}
 
 	return (
-		<div id='page-room'>
+		<div id='page-room' className={theme}>
 			<header>
 				<div className='content'>
 					<img src={logoImg} alt='letmeask logo' />
+						<button className='theme' onClick={toggleTheme}>
+							{theme === 'light' ? (
+								<img src={sunImg} alt='Alterar para dark mode ou light mode' />
+							) : (
+								<img src={moonImg} alt='Alterar para dark mode ou light mode' />
+							)}
+						</button>
 					<div>
 						<RoomCode code={roomId} />
 						<Button isOutlined onClick={handleEndRoom}>
@@ -83,7 +95,7 @@ export function AdminRoom() {
 			</header>
 
 			<main>
-				<div className='room-title'>
+				<div className={`room-title ${theme}`}>
 					<h1>Sala {title}</h1>
 					{questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
 				</div>

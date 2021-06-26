@@ -2,12 +2,16 @@ import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import logoImg from '../assets/images/logo.svg';
+import sunImg from '../assets/images/sun.svg';
+import moonImg from '../assets/images/moon.svg';
 
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
 import { RoomCode } from '../components/RoomCode';
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
+import { useTheme } from '../hooks/useTheme';
+
 import { database } from '../services/firebase';
 
 import '../styles/room.scss';
@@ -17,6 +21,8 @@ type RoomParams = {
 };
 
 export function Room() {
+	const { theme, toggleTheme } = useTheme();
+
 	const { user, SignInWithGoogle } = useAuth();
 	const params = useParams<RoomParams>();
 	const [newQuestion, setNewQuestion] = useState('');
@@ -66,16 +72,26 @@ export function Room() {
 	}
 
 	return (
-		<div id='page-room'>
+		<div id='page-room' className={theme}>
 			<header>
 				<div className='content'>
 					<img src={logoImg} alt='letmeask logo' />
-					<RoomCode code={roomId} />
+
+					<button className='theme' onClick={toggleTheme}>
+						{theme === 'light' ? (
+							<img src={sunImg} alt='Alterar para dark mode ou light mode' />
+						) : (
+							<img src={moonImg} alt='Alterar para dark mode ou light mode' />
+						)}
+					</button>
+					<div>
+						<RoomCode code={roomId} />
+					</div>
 				</div>
 			</header>
 
 			<main>
-				<div className='room-title'>
+				<div className={`room-title ${theme}`}>
 					<h1>Sala {title}</h1>
 					{questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
 				</div>
@@ -85,6 +101,7 @@ export function Room() {
 						placeholder='O que você quer perguntar?'
 						onChange={event => setNewQuestion(event.target.value)}
 						value={newQuestion}
+						className={theme === 'dark' ? 'text-area-dark-mode' : ''}
 					/>
 					<div className='form-footer'>
 						{user ? (

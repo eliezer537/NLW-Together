@@ -178,3 +178,44 @@
 	background-color: #333;
 	filter: opacity(90%);
 }
+
+@media screen and (max-width: 680px) {
+	#page-room {
+		header {
+			.content {
+				align-items: flex-start;
+
+				> div {
+					flex-direction: column;
+					align-items: flex-end;
+					align-self: center;
+
+					button {
+						max-width: 90%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 450px) {
+	#page-room {
+		header {
+			.content {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 10px;
+
+				> div {
+					flex-direction: column;
+					align-items: initial;
+
+					button {
+						max-width: 100%;
+					}
+				}
+			}
+		}
+	}
+}

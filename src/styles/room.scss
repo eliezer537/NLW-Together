@@ -124,6 +124,12 @@
 						font-weight: 500;
 						font-size: 0.875rem;
 					}
+
+					&.dark {
+						span {
+							color: #9c9cb1;
+						}
+					}
 				}
 
 				> span {

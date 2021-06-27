@@ -78,13 +78,13 @@ export function AdminRoom() {
 			<header>
 				<div className='content'>
 					<img src={logoImg} alt='letmeask logo' />
-						<button className='theme' onClick={toggleTheme}>
-							{theme === 'light' ? (
-								<img src={sunImg} alt='Alterar para dark mode ou light mode' />
-							) : (
-								<img src={moonImg} alt='Alterar para dark mode ou light mode' />
-							)}
-						</button>
+					<button className='theme' onClick={toggleTheme}>
+						{theme === 'light' ? (
+							<img src={sunImg} alt='Alterar para dark mode ou light mode' />
+						) : (
+							<img src={moonImg} alt='Alterar para dark mode ou light mode' />
+						)}
+					</button>
 					<div>
 						<RoomCode code={roomId} />
 						<Button isOutlined onClick={handleEndRoom}>

@@ -8,6 +8,7 @@ import moonImg from '../assets/images/moon.svg';
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
 import { RoomCode } from '../components/RoomCode';
+
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { useTheme } from '../hooks/useTheme';
@@ -22,7 +23,6 @@ type RoomParams = {
 
 export function Room() {
 	const { theme, toggleTheme } = useTheme();
-
 	const { user, SignInWithGoogle } = useAuth();
 	const params = useParams<RoomParams>();
 	const [newQuestion, setNewQuestion] = useState('');
@@ -38,8 +38,6 @@ export function Room() {
 
 		if (!user) {
 			throw new Error('You must be logged in!');
-			//Inserir um toast aqui
-			//https://react-hot-toast.com/
 		}
 
 		const question = {
@@ -105,7 +103,7 @@ export function Room() {
 					/>
 					<div className='form-footer'>
 						{user ? (
-							<div className='user-info'>
+							<div className={`user-info ${theme}`}>
 								<img src={user.avatar} alt={user.name} />
 								<span>{user.name}</span>
 							</div>

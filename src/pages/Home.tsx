@@ -1,6 +1,8 @@
 import { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import toast, { Toaster } from 'react-hot-toast';
+
 import { useAuth } from '../hooks/useAuth';
 import { database } from '../services/firebase';
 
@@ -34,14 +36,12 @@ export function Home() {
 		const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
 		if (!roomRef.exists()) {
-			//Modal
-			alert('Room does not exists!');
+			toast('Ops, essa sala não existe!', { icon: '❗️' });
 			return;
 		}
 
 		if (roomRef.val().endedAt) {
-			//React Modal
-			alert('Room already closed!');
+			toast.error('Ops, essa sala já foi fechada!', { icon: '❗️' });
 			return;
 		}
 
@@ -78,6 +78,8 @@ export function Home() {
 					</form>
 				</div>
 			</main>
+
+			<Toaster position='top-right' toastOptions={{ duration: 4000 }} />
 		</div>
 	);
 }

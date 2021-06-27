@@ -30,7 +30,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [SCSS](https://sass-lang.com/)
 - [Typescript](https://www.typescriptlang.org/)
 - [React Modal](https://github.com/reactjs/react-modal) : Componente de diálogo modal para ReactJS.
-- [React Hot Toast](https://react-hot-toast.com/) Serviço que identifica a localização geográfica e proxy por endereço IP.
+- [React Hot Toast](https://react-hot-toast.com/) Biblioteca de notificações.
 
 </p>
 

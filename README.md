@@ -37,19 +37,19 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 ## 📥 Como baixar a aplicação
 
 ```bash
-    $ git clone https://github.com/eliezer537/NLW-Together.git
-    $ cd NLW-Together
+git clone https://github.com/eliezer537/NLW-Together.git
+cd NLW-Together
 ```
 
 ## 📦 Para instalar as dependências
 ```bash
-    $ yarn install
+yarn install
 ```
 
-## 🖱️ Para iniciar a aplicação
+## 🖱️ Para executar a aplicação
 
 ```bash
-    $ yarn start
+yarn start
 ```
 
 Caso não tenha o **yarn** instalado em seu computador, você poderá acessar o [Guia de instalação](https://classic.yarnpkg.com/en/docs/install/#debian-stable).

@@ -38,12 +38,17 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 ```bash
     $ git clone https://github.com/eliezer537/NLW-Together.git
+    $ cd NLW-Together
+```
+
+## 📦 Para instalar as dependências
+```bash
+    $ yarn install
 ```
 
 ## 🖱️ Para iniciar a aplicação
 
 ```bash
-    $ cd NLW-Together
     $ yarn start
 ```
 

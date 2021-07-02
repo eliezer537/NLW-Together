@@ -45,7 +45,7 @@ cd NLW-Together
 - Ative o recurso de autenticação com o Google. No Firebase vá até o seu projeto e entre em **Authentication** na barra lateral.
 - Crie um novo banco de dados na barra lateral -> **Realtime Database**.
 - Altere as regras iniciais em -> **Realtime Database** -> **Regras**, pelas seguintes novas regras [aqui](./database.rules.json) sugeridas.
-- Integre o Firebase com a aplicação React indo até **Visão geral do projeto** e selecione **Web** e insira o nome do app para registrar.
+- Integre o Firebase com a aplicação React indo até **Visão geral do projeto**, selecione **Web** e insira o nome do app para registrar.
 
 ## 📌 Configuração da aplicação
 - No directório da aplicação crie um arquivo de variáveis ambiente chamado **.env.local**

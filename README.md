@@ -42,8 +42,8 @@ cd NLW-Together
 ```
 ## ⚙️ Configure o Firebase para executar o projeto
 - Crie um [novo projeto](https://console.firebase.google.com/?hl=pt) no Firebase
-- Ative o recurso de autenticação com o Google em "[Authentication]"(https://console.firebase.google.com/project/whatsapp-59702/authentication/providers?hl=pt)
-- Crie um novo banco de dados em "[Realtime Database]" (https://console.firebase.google.com/project/whatsapp-59702/database?hl=pt)
+- Ative o recurso de autenticação com o Google em ['Authentication'](https://console.firebase.google.com/project/whatsapp-59702/authentication/providers?hl=pt)
+- Crie um novo banco de dados em ['Realtime Database'] (https://console.firebase.google.com/project/whatsapp-59702/database?hl=pt)
 
 ## 📦 Para instalar as dependências
 ```bash

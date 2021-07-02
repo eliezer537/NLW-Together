@@ -48,7 +48,8 @@ cd NLW-Together
 
 ## 📌 Configuração da aplicação
 - Na directório da aplicação crie um arquivo de variáveis ambiente chamado **.env.local**
-- Nesse arquivo insira as chaves: ```bash
+- Nesse arquivo insira as chaves: 
+```bash
 REACT_APP_API_KEY="   "
 REACT_APP_AUTH_DOMAIN="    "
 REACT_APP_DATABASE_URL="   "

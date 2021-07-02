@@ -41,6 +41,8 @@ git clone https://github.com/eliezer537/NLW-Together.git
 cd NLW-Together
 ```
 
+## Crie um [novo projeto](https://console.firebase.google.com/?hl=pt) no Firebase
+
 ## 📦 Para instalar as dependências
 ```bash
 yarn install

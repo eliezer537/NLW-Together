@@ -44,7 +44,7 @@ cd NLW-Together
 - Crie um [novo projeto](https://console.firebase.google.com/?hl=pt) no Firebase
 - Ative o recurso de autenticação com o Google na barra lateral -> [Authentication](https://console.firebase.google.com/project/whatsapp-59702/authentication/providers?hl=pt)
 - Crie um novo banco de dados na barra lateral -> [Realtime Database](https://console.firebase.google.com/project/whatsapp-59702/database?hl=pt)
-- Altere as regras iniciais do banco de dados em -> Realtime Database -> [Regras](https://console.firebase.google.com/project/whatsapp-59702/database/whatsapp-59702-default-rtdb/rules?hl=pt) para: [novas regras]:(../database.rules.json)
+- Altere as regras iniciais do banco de dados em -> Realtime Database -> [Regras](https://console.firebase.google.com/project/whatsapp-59702/database/whatsapp-59702-default-rtdb/rules?hl=pt) pelas regras [aqui](./database.rules.json) sugeridas.
 
 ## 📦 Para instalar as dependências
 ```bash

@@ -46,6 +46,19 @@ cd NLW-Together
 - Crie um novo banco de dados na barra lateral -> [Realtime Database](https://console.firebase.google.com/project/whatsapp-59702/database?hl=pt)
 - Altere as regras iniciais em -> Realtime Database -> [Regras](https://console.firebase.google.com/project/whatsapp-59702/database/whatsapp-59702-default-rtdb/rules?hl=pt), pelas seguintes novas regras [aqui](./database.rules.json) sugeridas.
 
+## 📌 Configuração da aplicação
+- Na directório da aplicação crie um arquivo de variáveis ambiente chamado **.env.local**
+- Nesse arquivo insira as chaves: ```bash
+REACT_APP_API_KEY="   "
+REACT_APP_AUTH_DOMAIN="    "
+REACT_APP_DATABASE_URL="   "
+REACT_APP_PROJECT_ID="    "
+REACT_APP_STORAGE_BUCKET="    "
+REACT_APP_MESSAGING_SENDER_ID="   "
+REACT_APP_APP_ID="   "
+```
+- Os valores das chaves acima podem ser encontrados em -> Visão Geral do Projeto -> Configuração do projeto
+
 ## 📦 Para instalar as dependências
 ```bash
 yarn install

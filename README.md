@@ -42,9 +42,9 @@ cd NLW-Together
 ```
 ## ⚙️ Configure o Firebase para executar o projeto
 - Crie um [novo projeto](https://console.firebase.google.com/?hl=pt) no Firebase
-- Ative o recurso de autenticação com o Google na barra lateral -> [Authentication](https://console.firebase.google.com/project/whatsapp-59702/authentication/providers?hl=pt)
-- Crie um novo banco de dados na barra lateral -> [Realtime Database](https://console.firebase.google.com/project/whatsapp-59702/database?hl=pt)
-- Altere as regras iniciais em -> Realtime Database -> [Regras](https://console.firebase.google.com/project/whatsapp-59702/database/whatsapp-59702-default-rtdb/rules?hl=pt), pelas seguintes novas regras [aqui](./database.rules.json) sugeridas.
+- Ative o recurso de autenticação com o Google. No Firebase vá até o seu projeto e entre em Authentication na barra lateral.
+- Crie um novo banco de dados na barra lateral -> Realtime Database.
+- Altere as regras iniciais em -> Realtime Database -> Regras, pelas seguintes novas regras [aqui](./database.rules.json) sugeridas.
 
 ## 📌 Configuração da aplicação
 - No directório da aplicação crie um arquivo de variáveis ambiente chamado **.env.local**

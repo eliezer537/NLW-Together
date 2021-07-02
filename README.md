@@ -40,8 +40,8 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 git clone https://github.com/eliezer537/NLW-Together.git
 cd NLW-Together
 ```
-
-## Crie um [novo projeto](https://console.firebase.google.com/?hl=pt) no Firebase
+## Configure o Firebase para executar o projeto
+### Crie um [novo projeto](https://console.firebase.google.com/?hl=pt) no Firebase
 
 ## 📦 Para instalar as dependências
 ```bash

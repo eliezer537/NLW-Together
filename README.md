@@ -44,8 +44,29 @@ cd NLW-Together
 - Crie um [novo projeto](https://console.firebase.google.com/?hl=pt) no Firebase
 - Ative o recurso de autenticação com o Google na barra lateral -> [Authentication](https://console.firebase.google.com/project/whatsapp-59702/authentication/providers?hl=pt)
 - Crie um novo banco de dados na barra lateral -> [Realtime Database](https://console.firebase.google.com/project/whatsapp-59702/database?hl=pt)
-- Edite as regras do banco de dados em -> Realtime Database -> [Regras](https://console.firebase.google.com/project/whatsapp-59702/database/whatsapp-59702-default-rtdb/rules?hl=pt)
-- --test
+- Edite as regras iniciais do banco de dados em -> Realtime Database -> [Regras](https://console.firebase.google.com/project/whatsapp-59702/database/whatsapp-59702-default-rtdb/rules?hl=pt) para as seguintes regras:
+```json
+{
+  "rules": {
+    "rooms": {
+      ".read": false,
+      ".write": "auth != null",
+      "$roomId": {
+        ".read": true,
+        ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.id)",
+        "questions": {
+          ".read": true,
+          ".write": "auth != null && (!data.exists() || data.parent().child('authorId').val() == auth.id)",
+          "likes": {
+            ".read": true,
+            ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.id)"  
+          }
+        }
+      }
+    }
+  }
+}
+```
 
 ## 📦 Para instalar as dependências
 ```bash
